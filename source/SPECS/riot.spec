@@ -196,11 +196,7 @@ cd .. ; tree -df -L 1 %{srcroot} ; cd -
 %build
 # Build section starts us in directory {_builddir}/{srcroot}
 
-# Clearing npm's cache and package lock to eliminate SHA1 integrity issues.
-#%%{warn: "taw build note: I keep running into this fatal error --'integrity checksum failed when using sha1'. Taking dramatic action -brute force- in an attempt to remedy it.' If someone can figure out what is causing this, I will buy them a beer."}
-/usr/bin/npm cache clean --force
-rm -rf ${HOME}/.npm/_cacache
-#rm -f %%{srccodetree}/package-lock.json
+# used to be an issue 'integrity checksum failed' -- if this still happens, what steps reproduce it?
 
 %if 0%{?suse_version:1}
 # We trust where we are getting modules from and Suse builds require
